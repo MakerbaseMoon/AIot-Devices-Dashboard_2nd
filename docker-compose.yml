@@ -1,0 +1,9 @@
+version: '3.9'
+services:
+  server:
+    build: .
+    container_name: "aiot-devices-dashboard-2nd"
+    volumes:
+      - ./python:/python
+    ports:
+      - 80:5000
