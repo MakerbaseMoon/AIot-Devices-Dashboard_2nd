@@ -184,3 +184,8 @@ dkms.conf
 # ESP IDF
 c_cpp_properties.json
 settings.json
+
+key.h
+
+# firebase
+serviceAccount.json
