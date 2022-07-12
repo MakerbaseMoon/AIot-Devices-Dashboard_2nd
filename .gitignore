@@ -189,3 +189,4 @@ key.h
 
 # firebase
 serviceAccount.json
+firebaseConfig.js
