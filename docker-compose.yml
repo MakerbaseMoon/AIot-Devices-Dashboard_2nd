@@ -7,3 +7,4 @@ services:
       - ./python:/python
     ports:
       - 80:5000
+    command: "python -u main.py"
