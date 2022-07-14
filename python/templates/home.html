@@ -1,112 +1,144 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta  charset="utf-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
         <link href="/static/css/home.css" rel="stylesheet">
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     </head>
-    <body>        
-        <header class="p-3 bg-dark text-white">
-            <div class="container">
-                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                    <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-                    </a>
-            
-                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                        <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-                    </ul>
-            
-                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                       <input type="search" class="form-control form-control-dark text-white bg-dark" placeholder="Search..." aria-label="Search">
-                    </form>
-            
-                    <div class="text-end">
-                        <button type="button" class="btn btn-outline-light me-2">Login</button>
-                        <button type="button" class="btn btn-warning">Sign-up</button>
+    <body>
+        <main class="form-signin w-100 m-auto">
+            <div class="row" id="out_row">
+                <div class="col-md-2 bg-dark text-white p-5" id="sidebar" style="display:block">
+                    <div class="row">
+                        <p class="fs-2">AIOT</p>
+                        <hr class="text-danger border-2 opacity-50">
+                        <ul class="fs-3">
+                            <li class="li_bg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+                                    <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+                                </svg>
+                                <span>Home</span>
+                            </li>
+                            <li class="li_bg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z"/>
+                                </svg>
+                                <span>Chart</span>
+                            </li>
+                            <li class="li_bg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-thermometer-high" viewBox="0 0 16 16">
+                                    <path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V2.5a.5.5 0 0 1 1 0v8.585a1.5 1.5 0 0 1 1 1.415z"/>
+                                    <path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z"/>
+                                </svg>
+                                <span>Template</span>
+                            </li>
+                            <li class="li_bg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-right-dots" viewBox="0 0 16 16">
+                                    <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
+                                    <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                </svg>
+                                <span>About me</span> 
+                            </li>
+                        </ul>
+                        <hr class="text-danger border-2 opacity-50">
+                        <div class="row">
+                            <div class="col">
+                                <p>text003</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </header>
-        
-        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" aria-label="Slide 1" aria-current="true" class="active"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
+                
+                <div class="col-md-10" id="content">
+                    <div class="row">
+                        <div class="col">
+                            <svg id="sidebar_list" xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-list p-2" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                        </div>
+                    </div>
 
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="10000">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <rect width="100%" height="100%" fill="#777"></rect>
-                    </svg>
+                    <div class="row p-4">
+                        <div class="col-md-8">
+                            <div class="row p-2">
+                                <div class="card shadow">
+                                    <div class="card-body" style="border-radius: 10px;">
+                                        <p>dd</p>
+                                        <div id="DHT11Chart" ></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row p-2">
+                                <div class="card shadow">
+                                    <div class="card-body" style="border-radius: 10px;">
+                                        <h1 id="nowDate">2021年 10月 25日</h1>
+                                        <h1 id="nowTime">09:00:00</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 col-md-6">
+                                    <div class="card shadow">
+                                        <div class="card-body" style="border-radius: 10px;">
+                                            <h3>ESP32</h3>
+                                            <h4>Template</h4>
+                                            <h1 id="nowTempData">20&#176;C</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-md-6">
+                                    <div class="card shadow">
+                                        <div class="card-body" style="border-radius: 10px;">
+                                            <h3>ESP32</h3>
+                                            <h4>Humidity</h4>
+                                            <h1 id="nowHumData">50%</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <p>text1</p>
+                    <div class="row" style="height: 5vh;"></div>
+                    <div class="row p-4">
+                        <div class="col-md-6 p-2">
+                            <div class="row p-2">
+                                <div class="card shadow">
+                                    <div class="card-body" style="border-radius: 10px;">
+                                        <div id="piechart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row p-2">
+                                <div class="card shadow">
+                                    <div class="card-body" style="border-radius: 10px;">
+                                        <div id="piechart2"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="10000">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <rect width="100%" height="100%" fill="#777"></rect>
-                    </svg>
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <p>text2</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="10000">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <rect width="100%" height="100%" fill="#777"></rect>
-                    </svg>
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <p>text3</p>
+                        <div class="col-md-6 p-2">
+                            <div class="row p-2">
+                                <div class="card shadow">
+                                    <div class="card-body" style="border-radius: 10px;">
+                                        <div id="regions_div"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-        
-        <div class="container">
-            <div class="row">
-                <div class="card">
-                    <div id="curve_chart"></div>
-                </div>
-            </div>
-        </div>
-        
-        <hr class="featurette-divider">
-
-        <footer class="py-3 my-4">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-            </ul>
-            <p class="text-center text-muted">© 2022 Company, Inc</p>
-          </footer>
+        </main>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="/static/js/value.js"></script>
+    <script src="/static/js/sidebar.js"></script>
     <script src="/static/js/chart.js"></script>
+    <script src="/static/js/main.js"></script>
 </html>
