@@ -1,0 +1,36 @@
+html {
+    height: 100vh;
+    width: 100vw;
+    margin: 0%;
+
+}
+
+body {
+    height: 100vh;
+    margin: 0%;
+    line-height: 8vh;
+    background-image: url("https://i.pinimg.com/236x/a4/40/41/a4404185edd7e41064cf4c8f4a5f5591.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li:hover{
+    background:brown;
+    border-radius: 10px;
+}
+
+#out_row { 
+    height:120vmax; 
+    margin: 0%; 
+    width: 100vmax;
+}
+
+#sidebar_list:hover { 
+    background-color: #6c757d;
+    border-radius: 10px;
+}

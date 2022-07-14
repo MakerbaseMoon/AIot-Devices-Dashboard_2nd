@@ -9,6 +9,14 @@ app.register_blueprint(esp_blueprints, url_prefix='/esp32')
 def hello_world():
     return 'Hello World'
 
+@app.route('/home')
+def home():
+    return render_template('home.html')
+
+@app.route('/home2')
+def home2():
+    return render_template('home2.html')
+
 @app.route('/login')
 def login():
     return render_template('login.html')
