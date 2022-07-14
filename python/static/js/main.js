@@ -21,9 +21,11 @@ function get_login_data() {
         let text = request.responseText;
         console.log(`data: ${text}`);
         if(text == "OK") {
-            window.location.href = `${window.location.origin}/home`;
+            if(window.location.pathname != '/home')
+                window.location.href = `${window.location.origin}/home`;
         } else {
-            window.location.href = `${window.location.origin}/login`;
+            if(window.location.pathname != '/login')
+                window.location.href = `${window.location.origin}/login`;
         }
     });
 }
