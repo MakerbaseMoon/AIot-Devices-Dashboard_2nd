@@ -21,7 +21,8 @@ google_button.addEventListener('click', () => {
         const email = result.user.email;
         console.log("result", result);
         console.log("credential", credential);
-        send_login_data(`{"email":"${email}","token":"${token}"}`)
+        send_login_data(`{"email":"${email}","token":"${token}"}`);
+        get_login_data();
     }).catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -49,9 +50,9 @@ function get_login_data() {
         let text = request.responseText;
         console.log(`data: ${text}`);
         if(text == "OK") {
-            window.location.href = `${window.location.origin}`;
+            window.location.href = `${window.location.origin}/home`;
         } else {
-            
+            window.location.href = `${window.location.origin}/login`;
         }
     });
 }
