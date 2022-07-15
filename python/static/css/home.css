@@ -8,7 +8,6 @@ html {
 body {
     height: 100vh;
     margin: 0%;
-    line-height: 8vh;
     background-image: url("https://i.pinimg.com/236x/a4/40/41/a4404185edd7e41064cf4c8f4a5f5591.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -24,10 +23,14 @@ li:hover{
     border-radius: 10px;
 }
 
+#sidebar {
+    line-height: 8vh;
+}
+
 #out_row { 
-    height:120vmax; 
+    height:100vh; 
     margin: 0%; 
-    width: 100vmax;
+    width: 100vw;
 }
 
 #sidebar_list:hover { 
