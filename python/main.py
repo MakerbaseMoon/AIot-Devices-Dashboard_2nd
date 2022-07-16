@@ -1,9 +1,12 @@
 import os
 from flask import Flask, Blueprint, render_template, request, redirect, url_for, make_response, send_from_directory
-from esp32.view import esp_blueprints
+from flask_socketio import SocketIO
+from esp32.view import esp_blueprints, dnt11_now_data
 
 app = Flask(__name__)
 app.register_blueprint(esp_blueprints, url_prefix='/esp32')
+
+socketio = SocketIO(app)
 
 @app.route('/')
 def hello_world():
@@ -57,6 +60,11 @@ def del_cookie():
 @app.errorhandler(404)
 def not_found(e):
     return render_template("notFound.html")
+
+@socketio.on('dht11_now_data')
+def dht11_now_data():
+    ptint(dnt11_now_data)
+    socketio.send(dnt11_now_data)
 
 if __name__ == "__main__":
     print("flask start.")
