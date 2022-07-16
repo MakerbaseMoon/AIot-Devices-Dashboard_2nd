@@ -76,7 +76,7 @@ void app_main(void)
         get_module_dht11_data(&temp, &hum);
         // sprintf(data, "{\"temp\":%.2f,\"hum\":%d}", temp, hum);
         // ESP_LOGI("DHT11", data);
-        http_sned_dht11_data_with_url("192.168.1.101", "/esp32/setdata", "{\"temp\":30.1,\"hum\":20}");
+        http_sned_dht11_data_with_url("192.168.140.6", "/esp32/setdata", "{\"temp\":30.1,\"hum\":20}");
         vTaskDelay(2000 / portTICK_RATE_MS);
     }
 

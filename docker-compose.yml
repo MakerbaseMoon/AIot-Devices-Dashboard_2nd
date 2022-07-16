@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3.4'
 services:
   server:
     image: aiot-devices-dashboard-2nd_server:latest

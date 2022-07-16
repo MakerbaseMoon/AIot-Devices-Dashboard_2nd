@@ -5,7 +5,7 @@ const socket = io(`ws://${window.location.host}:${port}/`);
 window.addEventListener("load", onLoad);
 
 function onLoad() {
-    get_login_data();
+    // get_login_data();
 
     // google.charts.load('upcoming', {packages: ['corechart']}).then(initChart);
     // setNowDate();
