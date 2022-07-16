@@ -49,9 +49,9 @@ void module_dht11_init(void)
     gpio_set_level(DHT11_PIN, 1);               // DHT11 send ready data.
 }
 
-void get_module_dht11_data(void* pvParameters)
+void get_module_dht11_data(float* temp, int* hum)
 {
-    struct dht11_data* data = (struct dht11_data*)pvParameters;
+    // struct dht11_data* data = (struct dht11_data*)pvParameters;
     uint8_t dht11_data_parts[5] = { 0, 0, 0, 0, 0 };
     int64_t dht11_data_start_time;
     uint8_t i = 0;
@@ -123,19 +123,19 @@ void get_module_dht11_data(void* pvParameters)
     if(*(dht11_data_parts + 4) - *(dht11_data_parts + 3) - *(dht11_data_parts + 2) - *(dht11_data_parts + 1) - *(dht11_data_parts + 0) < 0) {
         ESP_LOGI(DHT11_TAG2, "Data Read Error!");
     } else {
-        data->temp = (float)(*(dht11_data_parts + 2)) + 0.1 * (*(dht11_data_parts + 3));
-        data->hum  =         *(dht11_data_parts + 0);
+        *temp = (float)(*(dht11_data_parts + 2)) + 0.1 * (*(dht11_data_parts + 3));
+        *hum  =   (int)(*(dht11_data_parts + 0));
     }
 }
 
-void module_dht11_task(void* pvParameters)
-{
-    module_dht11_init();
-    ESP_LOGI(DHT11_TAG1, "init Success!");
-    vTaskDelay(vTaskDelay_DHT11_MIN_INTERVAL_TIME_MS);
+// void module_dht11_task(void* pvParameters)
+// {
+//     module_dht11_init();
+//     ESP_LOGI(DHT11_TAG1, "init Success!");
+//     vTaskDelay(vTaskDelay_DHT11_MIN_INTERVAL_TIME_MS);
 
-    for(;;) {
-        get_module_dht11_data(pvParameters);
-        vTaskDelay(vTaskDelay_DHT11_MIN_INTERVAL_TIME_MS);
-    }
-}
+//     for(;;) {
+//         get_module_dht11_data(pvParameters);
+//         vTaskDelay(vTaskDelay_DHT11_MIN_INTERVAL_TIME_MS);
+//     }
+// }
