@@ -2,6 +2,7 @@ import os
 from flask import Flask, Blueprint, render_template, request, redirect, url_for, make_response, send_from_directory
 from esp32.view import esp_blueprints
 
+
 app = Flask(__name__)
 app.register_blueprint(esp_blueprints, url_prefix='/esp32')
 
