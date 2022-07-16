@@ -1,10 +1,12 @@
 import os
 from flask import Flask, Blueprint, render_template, request, redirect, url_for, make_response, send_from_directory
 from esp32.view import esp_blueprints
-
+from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
 app.register_blueprint(esp_blueprints, url_prefix='/esp32')
+
+socketio = SocketIO(app, cors_allowed_origins='*')
 
 @app.route('/')
 def hello_world():
@@ -13,10 +15,6 @@ def hello_world():
 @app.route('/home')
 def home():
     return render_template('home.html')
-
-@app.route('/home2')
-def home2():
-    return render_template('home2.html')
 
 @app.route('/favicon.ico')
 def favicon():
