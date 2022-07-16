@@ -36,7 +36,8 @@ function drawRegionsMap() {
       ['Brazil', 400],
       ['Canada', 500],
       ['France', 600],
-      ['RU', 700]
+      ['RU', 700],
+      ['TW', 700]
     ]);
 
     let options = {};
@@ -69,15 +70,14 @@ function circle2_drawChart() {
 
     let data = google.visualization.arrayToDataTable([
       ['Task', 'Hours per Day'],
-      ['Work',     1],
-      ['Eat',      1],
-      ['Commute',  1],
-      ['Watch TV', 1],
-      ['Sleep',    1]
+      ['Work',     2],
+      ['Eat',      2],
+      ['Commute',  3],
+      ['Watch TV', 2],
     ]);
 
     let options = {
-      title: 'My Daily Activities'
+      title: 'Activities'
     };
 
     let chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
