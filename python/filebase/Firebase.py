@@ -21,23 +21,23 @@ class Firebase:
         doc_ref = self.db.collection('DHT11').document(dt_string)
         doc_ref.set({
             '1': {
-                'Hum': 59
+                'Hum': 59,
                 'Temp': 20
             },
             '2': {
-                'Hum': 59
+                'Hum': 59,
                 'Temp': 20
             },
             '3': {
-                'Hum': 59
+                'Hum': 59,
                 'Temp': 20
             },
             '4': {
-                'Hum': 59
+                'Hum': 59,
                 'Temp': 20
             },
             '5': {
-                'Hum': 59
+                'Hum': 59,
                 'Temp': 20
             }
         })

@@ -3,6 +3,7 @@ from flask import Flask, Blueprint, render_template, request, redirect, url_for,
 from flask_socketio import SocketIO
 from esp32.view import esp_blueprints, dnt11_now_data
 
+
 app = Flask(__name__)
 app.register_blueprint(esp_blueprints, url_prefix='/esp32')
 
