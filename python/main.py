@@ -61,7 +61,8 @@ def not_found(e):
 @socketio.on('dht11_now_data')
 def dht11_now_data(data):
     print(data)
-    socketio.emit("dht11_now_data",  "testdata")
+    print(dnt11_now_data)
+    socketio.emit("dht11_now_data",  dnt11_now_data)
 
 if __name__ == "__main__":
     print("flask start.")
