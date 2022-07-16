@@ -1,3 +1,5 @@
 Flask
 blueprint
 firebase-admin
+flask-socketio
+eventlet
