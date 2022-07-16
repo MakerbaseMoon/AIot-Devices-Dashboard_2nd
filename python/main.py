@@ -1,10 +1,11 @@
 import os
-from flask import Flask, Blueprint, render_template, request, redirect, url_for, make_response, send_from_directory
-from esp32.view import esp_blueprints
-from flask_socketio import SocketIO, emit
+from flask import Flask, Blueprint, render_template, request, redirect, url_for, make_response, send_from_directory  
+from flask_socketio import SocketIO, emit  
+from esp32.view import esp_blueprints, dnt11_now_data  
+import asyncio  
 
-app = Flask(__name__)
-app.register_blueprint(esp_blueprints, url_prefix='/esp32')
+app = Flask(__name__)  
+app.register_blueprint(esp_blueprints, url_prefix='/esp32')  
 
 socketio = SocketIO(app, cors_allowed_origins='*')
 
@@ -56,6 +57,11 @@ def del_cookie():
 @app.errorhandler(404)
 def not_found(e):
     return render_template("notFound.html")
+
+@socketio.on('dht11_now_data')
+def dht11_now_data(data):
+    print(data)
+    socketio.emit("dht11_now_data",  "testdata")
 
 if __name__ == "__main__":
     print("flask start.")

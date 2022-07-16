@@ -9,7 +9,7 @@ google.charts.setOnLoadCallback(circle2_drawChart);
 
 
 function Template_drawChart() {
-    var data = google.visualization.arrayToDataTable([
+    let data = google.visualization.arrayToDataTable([
         ['Year', 'Template', 'Humidity'],
         ['2004',  1000,      400],
         ['2005',  1170,      460],
@@ -17,19 +17,19 @@ function Template_drawChart() {
         ['2007',  1030,      540]
     ]);
 
-    var options = {
+    let options = {
         title: 'Template & Humidity chart',
         curveType: 'function',
         legend: { position: 'bottom' }
     };
 
-    var chart = new google.visualization.LineChart(DHT11Chart);
+    let chart = new google.visualization.LineChart(DHT11Chart);
 
     chart.draw(data, options);
 }
 
 function drawRegionsMap() {
-    var data = google.visualization.arrayToDataTable([
+    let data = google.visualization.arrayToDataTable([
       ['Country', 'Popularity'],
       ['Germany', 200],
       ['United States', 300],
@@ -39,49 +39,50 @@ function drawRegionsMap() {
       ['RU', 700]
     ]);
 
-    var options = {};
+    let options = {};
 
-    var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+    let chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 
     chart.draw(data, options);
 }
 
+function circle_drawChart() {
+  let data = google.visualization.arrayToDataTable([
+    ['Task', 'Hours per Day'],
+    ['Work',     20],
+    ['Eat',      20],
+    ['Commute',  20],
+    ['Watch TV', 20],
+    ['Sleep',    20]
+  ]);
+
+  let options = {
+    title: 'My Daily Activities'
+  };
+
+  let chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+  chart.draw(data, options);
+}
+
 function circle2_drawChart() {
 
-    var data = google.visualization.arrayToDataTable([
+    let data = google.visualization.arrayToDataTable([
       ['Task', 'Hours per Day'],
-      ['Work',     11],
-      ['Eat',      2],
-      ['Commute',  2],
-      ['Watch TV', 2],
-      ['Sleep',    7]
+      ['Work',     1],
+      ['Eat',      1],
+      ['Commute',  1],
+      ['Watch TV', 1],
+      ['Sleep',    1]
     ]);
 
-    var options = {
+    let options = {
       title: 'My Daily Activities'
     };
 
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    let chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
 
-    chart.draw(data, options);
+    chart2.draw(data, options);
   }
 
-  function circle_drawChart() {
 
-    var data = google.visualization.arrayToDataTable([
-      ['Task', 'Hours per Day'],
-      ['Work',     11],
-      ['Eat',      2],
-      ['Commute',  2],
-      ['Watch TV', 2],
-      ['Sleep',    7]
-    ]);
-
-    var options = {
-      title: 'My Daily Activities'
-    };
-
-    var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
-
-    chart.draw(data, options);
-  }

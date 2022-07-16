@@ -1,14 +1,18 @@
+let port = 80;
+import { io } from "https://cdn.socket.io/4.4.1/socket.io.esm.min.js";
+const socket = io(`ws://${window.location.host}:${port}/`);
+
 window.addEventListener("load", onLoad);
 
 function onLoad() {
     get_login_data();
 
-    google.charts.load('upcoming', {packages: ['corechart']}).then(initChart);
-    setNowDate();
-    setNowDHT11Data();
+    // google.charts.load('upcoming', {packages: ['corechart']}).then(initChart);
+    // setNowDate();
+    // setNowDHT11Data();
 
-    setInterval(setNowDate,       1000);
-    setInterval(setNowDHT11Data, 60000);
+    // setInterval(setNowDate,       1000);
+    // setInterval(setNowDHT11Data, 60000);
 }
 
 function get_login_data() {
@@ -29,3 +33,9 @@ function get_login_data() {
         }
     });
 }
+
+
+socket.on('dht11_now_data', data=> {
+    console.log(data);
+    socket.emit('dht11_now_data', "data");
+})
