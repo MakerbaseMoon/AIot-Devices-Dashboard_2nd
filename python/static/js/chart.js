@@ -1,23 +1,27 @@
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(Template_drawChart);
-google.charts.load('current', {'packages':['geochart']});
-google.charts.setOnLoadCallback(drawRegionsMap);
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(circle_drawChart);
-google.charts.setOnLoadCallback(circle2_drawChart);
-
 let list_circle_1 = new Array;
 let list_circle_2 = new Array;
 let list_map = new Array;
 
+function setup_google_charts() {
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(Template_drawChart);
+    google.charts.load('current', {'packages':['geochart']});
+    google.charts.setOnLoadCallback(drawRegionsMap);
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(circle_drawChart);
+    google.charts.setOnLoadCallback(circle2_drawChart);
+}
+
 
 function Template_drawChart() {
     let data = google.visualization.arrayToDataTable([
-        ['Year', 'Template', 'Humidity'],
-        ['2004',  1000,      400],
-        ['2005',  1170,      460],
-        ['2006',  660,       1120],
-        ['2007',  1030,      540]
+        ['Seconds', 'Template', 'Humidity'],
+        ['0',   1000,      400],
+        ['12',  1170,      460],
+        ['24',   660,      110],
+        ['36',   530,      540],
+        ['48',   750,      324],
+        ['60',   570,      650],
     ]);
 
     let options = {
@@ -72,12 +76,14 @@ function circle_drawChart() {
     let options = {
         title: '一樓用電量',
         is3D: true,
+
     };
 
     let chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
     chart.draw(data, options);
 }
+
 
 
 
