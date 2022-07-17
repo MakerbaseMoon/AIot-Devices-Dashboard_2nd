@@ -6,6 +6,9 @@ google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(circle_drawChart);
 google.charts.setOnLoadCallback(circle2_drawChart);
 
+let list_circle_1 = new Array;
+let list_circle_2 = new Array;
+let list_map = new Array;
 
 
 function Template_drawChart() {
@@ -29,15 +32,19 @@ function Template_drawChart() {
 }
 
 function drawRegionsMap() {
+    for(let i = 0; i < 7; i ++) {
+        let x =  Math.floor(Math.random() * 800) + 1
+        list_map.push(x);
+    }
     let data = google.visualization.arrayToDataTable([
-      ['Country', 'Popularity'],
-      ['Germany', 200],
-      ['United States', 300],
-      ['Brazil', 400],
-      ['Canada', 500],
-      ['France', 600],
-      ['RU', 700],
-      ['TW', 700]
+        ['Country', 'Popularity'],
+        ['Germany',        list_map[0]],
+        ['United States', list_map[1]],
+        ['Brazil',        list_map[2]],
+        ['Canada',        list_map[3]],
+        ['France',        list_map[4]],
+        ['RU',            list_map[5]],
+        ['TW',            list_map[6]]
     ]);
 
     let options = {};
@@ -48,41 +55,56 @@ function drawRegionsMap() {
 }
 
 function circle_drawChart() {
-  let data = google.visualization.arrayToDataTable([
-    ['Task', 'Hours per Day'],
-    ['Work',     20],
-    ['Eat',      20],
-    ['Commute',  20],
-    ['Watch TV', 20],
-    ['Sleep',    20]
-  ]);
-
-  let options = {
-    title: 'My Daily Activities'
-  };
-
-  let chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-  chart.draw(data, options);
-}
-
-function circle2_drawChart() {
+    for(let i = 0; i < 5; i ++) {
+        let x =  Math.floor(Math.random() * 100) + 1
+        list_circle_1.push(x);
+    }
 
     let data = google.visualization.arrayToDataTable([
-      ['Task', 'Hours per Day'],
-      ['Work',     2],
-      ['Eat',      2],
-      ['Commute',  3],
-      ['Watch TV', 2],
+        ['Task', 'Hours per Day'],
+        ['電視',     list_circle_1[0]],
+        ['冷氣',     list_circle_1[1]],
+        ['冰箱',     list_circle_1[2]],
+        ['電燈',     list_circle_1[3]],
+        ['熱水器',    list_circle_1[4]]
     ]);
 
     let options = {
-      title: 'Activities'
+        title: '一樓用電量',
+        is3D: true,
+    };
+
+    let chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+    chart.draw(data, options);
+}
+
+
+
+
+function circle2_drawChart() {
+    for(let i = 0; i < 5; i ++) {
+        let x =  Math.floor(Math.random() * 100) + 1
+        list_circle_2.push(x);
+    }
+
+    let data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['電視',     list_circle_2[0]],
+        ['冷氣',     list_circle_2[1]],
+        ['冰箱',     list_circle_2[2]],
+        ['電燈',     list_circle_2[3]],
+        ['熱水器',    list_circle_2[4]]
+    ]);
+
+    let options = {
+        title: '二樓用電量',
+        is3D: true,
     };
 
     let chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
 
     chart2.draw(data, options);
-  }
+}
 
 

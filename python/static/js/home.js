@@ -3,6 +3,7 @@ import { io } from "https://cdn.socket.io/4.4.1/socket.io.esm.min.js";
 const socket = io(`ws://${window.location.host}:${port}/`);
 
 window.addEventListener("load", onLoad);
+window.addEventListener("resize", window_change);
 
 function onLoad() {
     get_login_data();
@@ -14,6 +15,14 @@ function onLoad() {
     // setInterval(setNowDate,       1000);
     // setInterval(setNowDHT11Data, 60000);
 }
+
+function window_change() {
+    google.charts.setOnLoadCallback(Template_drawChart);
+    google.charts.setOnLoadCallback(drawRegionsMap);
+    google.charts.setOnLoadCallback(circle_drawChart);
+    google.charts.setOnLoadCallback(circle2_drawChart);
+}
+
 
 function get_login_data() {
     console.log("Get login data");
