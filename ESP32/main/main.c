@@ -8,6 +8,7 @@
 #include "esp_log.h"
 #include "esp_system.h"
 #include "esp_task_wdt.h"
+#include "esp_system.h"
 
 #include "nvs_flash.h"
 
@@ -16,12 +17,14 @@
 
 #include "module_dht11.h"
 
-#define TWDT_TIMEOUT_MS 3000
+#include "key.h"
 
 static void http_test_task(void *pvParameters)
 {
     float temp = 0;
-    int hum = 0;
+    int   hum  = 0;
+
+    int restart = ESP_RESTART_TIMES * 6;
 
     module_dht11_init();
     ESP_LOGI("DHT11", "Module init success");
@@ -38,15 +41,17 @@ static void http_test_task(void *pvParameters)
         return;
     }
 
-    for(;;) {
+    for(;restart > 0; restart--) {
         get_module_dht11_data(&temp, &hum);
         sprintf(data, "{\"temp\":%.2f,\"hum\":%d}", temp, hum);
         ESP_LOGI("DHT11", "%s", data);
-        http_sned_dht11_data_with_url("192.168.1.101", "/esp32/setdata", data);
+        http_sned_dht11_data_with_url(SERVER_IP_ADDRESS, "/esp32/setdata", data);
         vTaskDelay(10000 / portTICK_RATE_MS);
     }
 
     free(data);
+    esp_restart();
+
     vTaskDelete(NULL);
 }
 
