@@ -6,7 +6,7 @@ window.addEventListener("load", onLoad);
 window.addEventListener("resize", reSize);
 
 function onLoad() {
-    // get_login_data();
+    get_login_data();
 
     get_dht11_data();
     setInterval(get_dht11_data, 10000);
