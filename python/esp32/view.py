@@ -2,7 +2,7 @@ import os
 import asyncio
 
 from flask import Flask, Blueprint, render_template, request, redirect, url_for, make_response, send_from_directory
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 
 import firebase_admin
 from firebase_admin import credentials
@@ -36,15 +36,31 @@ async def esp_set_data():
 
 @esp_blueprints.route('/getdata', methods=['GET', 'POST'])
 def esp_get_data():
-    doc = db.collection(u'DHT11')
-    doc_ref = doc.document(u'2022-07-16-04')
+    now = datetime.now() - timedelta(minutes=1)
+    doc = now.strftime("%Y-%m-%d-%H")
+    minute = now.strftime("%M")
+
+    doc_ref = db.collection(u'DHT11').document(doc)
+
+    print(doc)
+    print(minute)
+
     docs = doc_ref.get().to_dict()
 
     print(docs)
 
     if docs == None:
+        return {"minute":None, "temp": None, "hum": None}
+    else:
+        try:
+            data = {"minute":minute, "temp": docs[minute]['temp'], "hum": docs[minute]['hum']}
+            return data
+        except:
+            return {"minute":None, "temp": None, "hum": None}
+
+    if docs == None:
         return {"temp": None, "hum": None}
-    return docs
+    return "OK"
 
 @esp_blueprints.route('/form', methods=['GET', 'POST'])
 def esp_form():

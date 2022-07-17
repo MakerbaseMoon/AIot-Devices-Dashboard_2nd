@@ -2,28 +2,23 @@ let list_circle_1 = new Array;
 let list_circle_2 = new Array;
 let list_map      = new Array;
 
+let dht11_chart_data = new Array;
+
 function setup_google_charts() {
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(Template_drawChart);
 
     google.charts.load('current', {'packages':['geochart']});
     google.charts.setOnLoadCallback(drawRegionsMap);
-    
+
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(circle_drawChart);
     google.charts.setOnLoadCallback(circle2_drawChart);
 }
 
 function Template_drawChart() {
-    let data = google.visualization.arrayToDataTable([
-        ['Seconds', 'Template', 'Humidity'],
-        ['0',   1000,      400],
-        ['12',  1170,      460],
-        ['24',   660,      110],
-        ['36',   530,      540],
-        ['48',   750,      324],
-        ['60',   570,      650],
-    ]);
+    console.log(dht11_chart_data);
+    let data = google.visualization.arrayToDataTable(dht11_chart_data);
 
     let options = {
         title: 'Template & Humidity chart',
@@ -34,6 +29,42 @@ function Template_drawChart() {
     let chart = new google.visualization.LineChart(DHT11Chart);
 
     chart.draw(data, options);
+}
+
+function get_chart_data() {
+    let request = new XMLHttpRequest();
+    request.open("POST", `${window.location.origin}/esp32/getdata`, true);
+    request.setRequestHeader("Content-Type", "application/json");
+    request.send();
+    request.addEventListener("load", () => {
+        let data = JSON.parse(request.responseText);
+        console.log(data);
+        console.log("minute", data['minute']);
+        if(data['minute'] == null) {
+            dht11_chart_data = [
+                ['Seconds', 'Template', 'Humidity'],
+                ['0',   0,     0],
+                ['12',  0,     0],
+                ['24',  0,     0],
+                ['36',  0,     0],
+                ['48',  0,     0],
+                ['60',  0,     0],
+            ]
+        } else {
+            dht11_chart_data = [['Seconds', 'Template', 'Humidity']];
+            for(let i = 0; i < data['temp'].length; i++) {
+                let new_array = new Array;
+                new_array.push(0 + i * 12);
+                new_array.push(data['temp'][i]);
+                new_array.push(data['hum'][i]);
+                dht11_chart_data.push(new_array);
+            }
+        }
+
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(Template_drawChart);
+    
+    });
 }
 
 function drawRegionsMap() {

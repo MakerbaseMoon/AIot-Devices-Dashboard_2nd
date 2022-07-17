@@ -14,6 +14,9 @@ function onLoad() {
     set_now_date_time();
     setInterval(set_now_date_time, 1000);
 
+    get_chart_data();
+    setInterval(get_chart_data, 60000);
+
     setup_google_charts();
 }
 
