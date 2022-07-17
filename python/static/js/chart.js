@@ -1,6 +1,6 @@
 let list_circle_1 = new Array;
 let list_circle_2 = new Array;
-let list_map = new Array;
+let list_map      = new Array;
 
 function setup_google_charts() {
     google.charts.load('current', {'packages':['corechart']});
@@ -13,7 +13,6 @@ function setup_google_charts() {
     google.charts.setOnLoadCallback(circle_drawChart);
     google.charts.setOnLoadCallback(circle2_drawChart);
 }
-
 
 function Template_drawChart() {
     let data = google.visualization.arrayToDataTable([
@@ -44,7 +43,7 @@ function drawRegionsMap() {
     }
     let data = google.visualization.arrayToDataTable([
         ['Country', 'Popularity'],
-        ['Germany',        list_map[0]],
+        ['Germany',       list_map[0]],
         ['United States', list_map[1]],
         ['Brazil',        list_map[2]],
         ['Canada',        list_map[3]],
@@ -72,7 +71,7 @@ function circle_drawChart() {
         ['冷氣',     list_circle_1[1]],
         ['冰箱',     list_circle_1[2]],
         ['電燈',     list_circle_1[3]],
-        ['熱水器',    list_circle_1[4]]
+        ['熱水器',   list_circle_1[4]]
     ]);
 
     let options = {
@@ -86,10 +85,6 @@ function circle_drawChart() {
     chart.draw(data, options);
 }
 
-
-
-
-
 function circle2_drawChart() {
     for(let i = 0; i < 5; i ++) {
         let x =  Math.floor(Math.random() * 100) + 1
@@ -102,7 +97,7 @@ function circle2_drawChart() {
         ['冷氣',     list_circle_2[1]],
         ['冰箱',     list_circle_2[2]],
         ['電燈',     list_circle_2[3]],
-        ['熱水器',    list_circle_2[4]]
+        ['熱水器',   list_circle_2[4]]
     ]);
 
     let options = {
@@ -114,5 +109,3 @@ function circle2_drawChart() {
 
     chart2.draw(data, options);
 }
-
-
