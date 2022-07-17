@@ -21,6 +21,7 @@ function reSize() {
     setup_google_charts();
 }
 
+
 function get_login_data() {
     console.log("Get login data");
     let request = new XMLHttpRequest();

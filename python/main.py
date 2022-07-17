@@ -27,7 +27,7 @@ def login():
     return render_template('login.html')
 
 @app.route("/login/set", methods=['POST'])
-def setcookie():
+def set_cookie():
     print("Content-Type:", request.headers.get('Content-Type'))
     print("Json:", request.get_json())
     data = request.get_json()
