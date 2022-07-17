@@ -41,10 +41,10 @@ function get_login_data() {
 }
 
 function get_dht11_data() {
-    socket.emit('dht11_now_data', "data");
+    socket.emit('dht11_now_data_socket', "data");
 }
 
-socket.on('dht11_now_data', data=> {
+socket.on('dht11_now_data_socket', data=> {
     console.log(data);
     console.log("temp:", data.temp, "\u00B0C");
     console.log("hum:", data.hum, "%");

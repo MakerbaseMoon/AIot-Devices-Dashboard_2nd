@@ -57,6 +57,8 @@ void http_sned_dht11_data_with_url(const char* host, const char* path, const cha
         .path                   = path,
         .event_handler          = _http_event_handler,
         .disable_auto_redirect  = true,
+        .keep_alive_enable      = true,
+        .timeout_ms             = 2000, 
     };
 
     esp_http_client_handle_t client = esp_http_client_init(&config);

@@ -3,3 +3,4 @@ blueprint
 firebase-admin
 flask-socketio
 eventlet
+flask[async]

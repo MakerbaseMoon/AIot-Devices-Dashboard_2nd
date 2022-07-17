@@ -1,8 +1,10 @@
 function setup_google_charts() {
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(Template_drawChart);
+
     google.charts.load('current', {'packages':['geochart']});
     google.charts.setOnLoadCallback(drawRegionsMap);
+    
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(circle_drawChart);
     google.charts.setOnLoadCallback(circle2_drawChart);

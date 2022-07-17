@@ -1,7 +1,7 @@
 import os
 from flask import Flask, Blueprint, render_template, request, redirect, url_for, make_response, send_from_directory  
 from flask_socketio import SocketIO, emit  
-from esp32.view import esp_blueprints, dnt11_now_data  
+from esp32.view import esp_blueprints, dht11_now_data  
 import asyncio  
 
 app = Flask(__name__)  
@@ -11,7 +11,8 @@ socketio = SocketIO(app, cors_allowed_origins='*')
 
 @app.route('/')
 def hello_world():
-    return 'Hello World'
+    return redirect(url_for('home'))
+    # return 'Hello World'
 
 @app.route('/home')
 def home():
@@ -58,11 +59,11 @@ def del_cookie():
 def not_found(e):
     return render_template("notFound.html")
 
-@socketio.on('dht11_now_data')
-def dht11_now_data(data):
+@socketio.on('dht11_now_data_socket')
+def dht11_now_data_socket(data):
     print(data)
-    print(dnt11_now_data)
-    socketio.emit("dht11_now_data",  dnt11_now_data)
+    print(dht11_now_data)
+    socketio.emit("dht11_now_data_socket",  dht11_now_data)
 
 if __name__ == "__main__":
     print("flask start.")
