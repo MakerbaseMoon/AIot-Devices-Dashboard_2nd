@@ -6,50 +6,52 @@ AIot Devices Dashboard 2nd
 * Member: [jlhsu666](https://github.com/jlhsu666), [Hsun1031](https://github.com/Hsun1031), [Reaxoh](https://github.com/Reaxoh)
 
 ## file project files (專案檔案)
-|--ESP32<br>
-|  |<br>
-|  |--.devcontainer<br>
-|  |--.vscode<br>
-|  |--main<br>
-|  |  |- CMakeLists.txt<br>
-|  |  |- app_http.c<br>
-|  |  |- app_http.h<br>
-|  |  |- app_wifi.c<br>
-|  |  |- app_wifi.h<br>
-|  |  |- component.mk<br>
-|  |  |- key.h<br>
-|  |  |- main.c<br>
-|  |  |- module_dht11.c<br>
-|  |  |- module_dht11.h<br>
-|  |  |- pin.h<br>
-|  |<br>
-|  |- CMakeLists.txt<br>
-|  |- Makefile<br>
-|  |- sdkconfig<br>
-|  <br>
-|--python<br>
-|  |--esp32<br>
-|  |  |- __init__.py<br>
-|  |  |- view.py<br>
-|  |<br>
-|  |--static<br>
-|  |  |--css<br>
-|  |  |--img<br>
-|  |  |--js<br>
-|  |  |- favicon.ico<br>
-|  |<br>
-|  |--templates<br>
-|  |  |- home.html<br>
-|  |  |- login.html<br>
-|  |  |- notFound.html<br>
-|  |<br>
-|  |- main.py<br>
-|  |- requirements.txt<br>
-|<br>
-|- .gitignore<br>
-|- Dockerfile<br>
-|- README.md --> THIS FILE<br>
-|- docker-compose.yml<br>
+```
+|--ESP32
+|  |
+|  |--.devcontainer
+|  |--.vscode
+|  |--main
+|  |  |- CMakeLists.txt
+|  |  |- app_http.c
+|  |  |- app_http.h
+|  |  |- app_wifi.c
+|  |  |- app_wifi.h
+|  |  |- component.mk
+|  |  |- key.h
+|  |  |- main.c
+|  |  |- module_dht11.c
+|  |  |- module_dht11.h
+|  |  |- pin.h
+|  |
+|  |- CMakeLists.txt
+|  |- Makefile
+|  |- sdkconfig
+|  
+|--python
+|  |--esp32
+|  |  |- __init__.py
+|  |  |- view.py
+|  |
+|  |--static
+|  |  |--css
+|  |  |--img
+|  |  |--js
+|  |  |- favicon.ico
+|  |
+|  |--templates
+|  |  |- home.html
+|  |  |- login.html
+|  |  |- notFound.html
+|  |
+|  |- main.py
+|  |- requirements.txt
+|
+|- .gitignore
+|- Dockerfile
+|- README.md --> THIS FILE
+|- docker-compose.yml
+```
 
 ## ubuntu server (Ubuntun 伺服器)
 ```
