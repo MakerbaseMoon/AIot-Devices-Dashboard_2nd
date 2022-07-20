@@ -1,6 +1,6 @@
 let port = 80;
 import { io } from "https://cdn.socket.io/4.4.1/socket.io.esm.min.js";
-const socket = io(`ws://${window.location.host}:${port}/`);
+const socket = io(`${(location.protocol == "https:")? "wss" : "ws"}://${window.location.host}:${port}/`);
 
 window.addEventListener("load", onLoad);
 window.addEventListener("resize", reSize);

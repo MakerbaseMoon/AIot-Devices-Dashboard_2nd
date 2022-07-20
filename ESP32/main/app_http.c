@@ -8,6 +8,7 @@
 #include "esp_log.h"
 #include "esp_system.h"
 
+#include "app_wifi.h"
 #include "app_http.h"
 
 #include "esp_http_client.h"
@@ -50,20 +51,23 @@ esp_err_t _http_event_handler(esp_http_client_event_t *evt)
     return ESP_OK;
 }
 
-void http_sned_dht11_data_with_url(const char* host, const char* path, const char* data)
+void http_sned_dht11_data_with_url(const char* url, const char* data)
 {
     esp_http_client_config_t config = {
-        .host                   = host,
-        .path                   = path,
+        .url                    = url,
+        .transport_type         = HTTP_TRANSPORT_OVER_TCP,
         .event_handler          = _http_event_handler,
         .disable_auto_redirect  = true,
         .keep_alive_enable      = true,
-        .timeout_ms             = 2000, 
+        .timeout_ms             = 2000,
+        .method                 = HTTP_METHOD_POST,
+        .keep_alive_count       = 1,
     };
 
     esp_http_client_handle_t client = esp_http_client_init(&config);
-    esp_http_client_set_method(client, HTTP_METHOD_POST);
     esp_http_client_set_header(client, "Content-Type", "application/json");
+
+    app_wifi_wait_connected();
     esp_http_client_set_post_field(client, data, strlen(data));
 
     esp_err_t err = esp_http_client_perform(client);

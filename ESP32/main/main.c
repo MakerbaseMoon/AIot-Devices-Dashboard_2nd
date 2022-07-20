@@ -41,11 +41,11 @@ static void http_test_task(void *pvParameters)
         return;
     }
 
-    for(;restart > 0; restart--) {
+    for(;;) {
         get_module_dht11_data(&temp, &hum);
         sprintf(data, "{\"temp\":%.2f,\"hum\":%d}", temp, hum);
         ESP_LOGI("DHT11", "%s", data);
-        http_sned_dht11_data_with_url(SERVER_IP_ADDRESS, "/esp32/setdata", data);
+        http_sned_dht11_data_with_url(SERVER_IP_ADDRESS, data);
         vTaskDelay(10000 / portTICK_RATE_MS);
     }
 
@@ -65,5 +65,5 @@ void app_main(void)
     ESP_ERROR_CHECK(ret);
     app_wifi_initialise();
 
-    xTaskCreate(&http_test_task, "http_test_task", 8192, (void *)NULL, 5, NULL);
+    xTaskCreate(&http_test_task, "http_test_task", 8192, (void *)NULL, 1, NULL);
 }
