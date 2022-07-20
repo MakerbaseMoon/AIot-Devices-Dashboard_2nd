@@ -1,6 +1,7 @@
 # AIot-Devices-Dashboard_2nd
 物聯網即時監控網站 從前端設計到後端開發 第二代<br>
-AIot Devices Dashboard 2nd
+AIot Devices Dashboard 2nd<br>
+OneDrive: [Downloadable](https://liveknuedu-my.sharepoint.com/personal/srl_live_knu_edu_tw/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsrl%5Flive%5Fknu%5Fedu%5Ftw%2FDocuments%2FShared%20with%20Everyone%2FLectures%2F%E6%A0%A1%E5%A4%96%2FAIoT%2F20220721%5FAIot%2DDevices%2DDashboard%5F2nd%2FDownloadable&ga=1)
 
 * Group: 望月智聯網研究團隊
 * Member: [jlhsu666](https://github.com/jlhsu666), [Hsun1031](https://github.com/Hsun1031), [Reaxoh](https://github.com/Reaxoh)
