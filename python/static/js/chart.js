@@ -6,7 +6,7 @@ let dht11_chart_data = new Array;
 
 function setup_google_charts() {
     google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(Template_drawChart);
+    google.charts.setOnLoadCallback(Temperature_drawChart);
 
     google.charts.load('current', {'packages':['geochart']});
     google.charts.setOnLoadCallback(drawRegionsMap);
@@ -16,12 +16,12 @@ function setup_google_charts() {
     google.charts.setOnLoadCallback(circle2_drawChart);
 }
 
-function Template_drawChart() {
+function Temperature_drawChart() {
     console.log(dht11_chart_data);
     let data = google.visualization.arrayToDataTable(dht11_chart_data);
 
     let options = {
-        title: 'Template & Humidity chart',
+        title: 'Temperature & Humidity chart',
         curveType: 'function',
         legend: { position: 'bottom' }
     };
@@ -42,7 +42,7 @@ function get_chart_data() {
         console.log("minute", data['minute']);
         if(data['minute'] == null) {
             dht11_chart_data = [
-                ['Seconds', 'Template', 'Humidity'],
+                ['Seconds', 'Temperature', 'Humidity'],
                 ['0',   0,     0],
                 ['12',  0,     0],
                 ['24',  0,     0],
@@ -51,7 +51,7 @@ function get_chart_data() {
                 ['60',  0,     0],
             ]
         } else {
-            dht11_chart_data = [['Seconds', 'Template', 'Humidity']];
+            dht11_chart_data = [['Seconds', 'Temperature', 'Humidity']];
             for(let i = 0; i < data['temp'].length; i++) {
                 let new_array = new Array;
                 new_array.push(0 + i * 12);
@@ -62,7 +62,7 @@ function get_chart_data() {
         }
 
         google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(Template_drawChart);
+        google.charts.setOnLoadCallback(Temperature_drawChart);
     
     });
 }
