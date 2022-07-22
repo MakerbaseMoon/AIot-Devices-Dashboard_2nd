@@ -3,7 +3,7 @@ function set_now_date_time() {
 
     let _year  = date.getFullYear();
 
-    let _month = date.getMonth();
+    let _month = date.getMonth() + 1;
     _month = (_month < 10)? ('0' + _month) : _month;
 
     let _date  = date.getDate();
